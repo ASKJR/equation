@@ -1,1 +1,11 @@
 <p>{{equations | json}}</p>
+<div *ngIf="currentEquation">
+  <app-progress [current]="(equationIndex+1)+''" [total]="totalEquations+''"></app-progress>
+  <app-number  [numberValue]="currentEquation.numberOne"></app-number>
+  <app-operator [operator]="currentEquation.operator"></app-operator>
+  <app-number [numberValue]="currentEquation.numberTwo"></app-number>
+  <app-operator [operator]="'||'"></app-operator>
+  <app-answer (answerEvent)="receivedUserAnswer($event)" [clearInput]="clearInput"></app-answer>
+  <div>{{currentEquation.answer}}</div>
+</div>
+
