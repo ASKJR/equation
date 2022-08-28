@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EquationComponent } from './components/equation/equation.component';
+import { HttpClientModule } from '@angular/common/http';
+import { EquationApiService } from './services/equation-api.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EquationComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    EquationApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
