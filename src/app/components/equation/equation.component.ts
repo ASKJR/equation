@@ -17,6 +17,8 @@ export class EquationComponent implements OnInit {
   currentEquation!: Equation;
   clearInput = false;
   finished = false;
+  startTime!: number;
+  endTime!: number;
 
   ngOnInit(): void {
     this.init();
@@ -33,6 +35,7 @@ export class EquationComponent implements OnInit {
       next: (response) => {
         this.equations = response;
         this.currentEquation = this.equations[this.equationIndex];
+        this.startTime = performance.now();
       },
 
       error: (e) => {
@@ -43,6 +46,7 @@ export class EquationComponent implements OnInit {
 
         this.equations = Equation.getDafaultEquations();
         this.currentEquation = this.equations[this.equationIndex];
+        this.startTime = performance.now();
       }
 
     });
@@ -66,6 +70,7 @@ export class EquationComponent implements OnInit {
     }
     if (this.isQuizOver()) {
       this.finished = true;
+      this.endTime = performance.now();
     }
   }
 

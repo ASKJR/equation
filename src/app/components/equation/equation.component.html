@@ -9,7 +9,11 @@
   <div>{{currentEquation.answer}}</div>
 </div>
 <div *ngIf="finished">
-  <app-results></app-results>
+  <app-results
+    [startTimeInMs]="startTime"
+    [endTimeInMs]="endTime"
+  >
+  </app-results>
   <button (click)="restart()">Restart</button>
 </div>
 
