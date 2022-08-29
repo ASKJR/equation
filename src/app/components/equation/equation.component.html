@@ -8,4 +8,8 @@
   <app-answer (answerEvent)="receivedUserAnswer($event)" [clearInput]="clearInput"></app-answer>
   <div>{{currentEquation.answer}}</div>
 </div>
+<div *ngIf="finished">
+  <app-results></app-results>
+  <button (click)="restart()">Restart</button>
+</div>
 

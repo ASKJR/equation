@@ -11,27 +11,42 @@ export class EquationComponent implements OnInit {
 
   constructor(private equationApiService: EquationApiService) {}
 
-  equations: Equation[] = [
-    { "numberOne": 1, "numberTwo": 1, "operator": "+", "answer": 2},
-    { "numberOne": 10, "numberTwo": 10, "operator": "+", "answer": 20 },
-    { "numberOne": 5, "numberTwo": 5, "operator": "*", "answer": 25 },
-    { "numberOne": 200, "numberTwo": 300, "operator": "+", "answer": 500 }
-  ];
+  equations: Equation[] = [];
   totalEquations = 15;
   equationIndex = 0;
   currentEquation!: Equation;
   clearInput = false;
+  finished = false;
 
   ngOnInit(): void {
-    this.equationApiService.getEquations(this.totalEquations).subscribe((response) => {
-      this.equations = response;
+    this.init();
+  }
 
-      if (this.equations.length > 0) {
+
+  init() {
+
+    this.equationIndex = 0;
+    this.clearInput = false;
+    this.finished = false;
+    this.equationApiService.getEquations(this.totalEquations).subscribe({
+
+      next: (response) => {
+        this.equations = response;
+        this.currentEquation = this.equations[this.equationIndex];
+      },
+
+      error: (e) => {
+        console.log(`
+          API used to fetch equations is not working due to the following ${e}
+          \n Using default equations until API is back.
+        `);
+
+        this.equations = Equation.getDafaultEquations();
         this.currentEquation = this.equations[this.equationIndex];
       }
 
-    })
-    this.currentEquation = this.equations[this.equationIndex];
+    });
+
   }
 
   receivedUserAnswer(answer: string) {
@@ -49,6 +64,9 @@ export class EquationComponent implements OnInit {
       this.incrementEquationIndex();
       this.updateCurrentEquation();
     }
+    if (this.isQuizOver()) {
+      this.finished = true;
+    }
   }
 
   incrementEquationIndex() : void {
@@ -62,5 +80,13 @@ export class EquationComponent implements OnInit {
   updateCurrentEquation() {
     this.clearInput = !this.clearInput;
     this.currentEquation = this.equations[this.equationIndex];
+  }
+
+  isQuizOver() : boolean {
+    return this.equationIndex === this.totalEquations;
+  }
+
+  restart() {
+    this.init();
   }
 }

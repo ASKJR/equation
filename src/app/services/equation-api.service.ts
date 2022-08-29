@@ -16,8 +16,7 @@ export class EquationApiService {
     .get<Equation[]>(`https://equation-api.albertokato.com.br/api/v1/equations?qty=${qty}`)
     .pipe(catchError(
       (error) => {
-        console.log(error);
-        return throwError(() => new Error('Something went wrong.'))
+        return throwError(() => new Error('API is DOWN.'))
       }
     ))
   }
