@@ -15,4 +15,9 @@ export class ProgressComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getProgressPercentage() {
+    if (+this.current == 1) return 0;
+    const total = (+this.total)+1;
+    return Math.trunc((+this.current/total)*100);
+  }
 }

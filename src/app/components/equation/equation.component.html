@@ -1,13 +1,41 @@
-<p>{{equations | json}}</p>
-<div *ngIf="currentEquation">
-  <app-progress [current]="(equationIndex+1)+''" [total]="totalEquations+''"></app-progress>
-  <app-number  [numberValue]="currentEquation.numberOne"></app-number>
-  <app-operator [operator]="currentEquation.operator"></app-operator>
-  <app-number [numberValue]="currentEquation.numberTwo"></app-number>
-  <app-operator [operator]="'||'"></app-operator>
-  <app-answer (answerEvent)="receivedUserAnswer($event)" [clearInput]="clearInput"></app-answer>
-  <div>{{currentEquation.answer}}</div>
+
+<!-- <p>{{equations | json}}</p> -->
+<div nz-row>
+  <div nz-col nzSpan="24">
+    <app-progress [current]="(equationIndex+1)+''" [total]="totalEquations+''"></app-progress>
+  </div>
 </div>
+<div *ngIf="currentEquation">
+  <div nz-col nzSpan="24">
+    <app-number  [numberValue]="currentEquation.numberOne"></app-number>
+  </div>
+</div>
+<div *ngIf="currentEquation">
+  <div nz-col nzSpan="24">
+    <app-operator [operator]="currentEquation.operator"></app-operator>
+  </div>
+</div>
+<div *ngIf="currentEquation">
+  <div nz-col nzSpan="24">
+    <app-number [numberValue]="currentEquation.numberTwo"></app-number>
+  </div>
+</div>
+<div *ngIf="currentEquation">
+  <div nz-col nzSpan="24">
+    <app-operator [operator]="'||'"></app-operator>
+  </div>
+</div>
+<div *ngIf="currentEquation">
+  <div nz-col [nzLg]="{span: 4, offset:10}" [nzXs]="{ span: 12, offset:6 }">
+    <app-answer (answerEvent)="receivedUserAnswer($event)" [clearInput]="clearInput"></app-answer>
+  </div>
+</div>
+<div *ngIf="currentEquation">
+  <div nz-col nzSpan="24">
+    <div>{{currentEquation.answer}}</div>
+  </div>
+</div>
+
 <div *ngIf="finished">
   <app-results
     [startTimeInMs]="startTime"
