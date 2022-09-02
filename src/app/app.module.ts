@@ -22,6 +22,7 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzButtonModule } from 'ng-zorro-antd/button'
 
 registerLocaleData(en);
 
@@ -46,6 +47,7 @@ registerLocaleData(en);
     NzProgressModule,
     NzGridModule,
     NzInputModule,
+    NzButtonModule
   ],
   providers: [
     EquationApiService,

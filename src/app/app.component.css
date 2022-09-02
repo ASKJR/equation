@@ -6,6 +6,7 @@ nz-header {
   color: aliceblue;
 }
 nz-footer {
+  background-color: #fff;
 }
 
 nz-footer {
@@ -20,6 +21,7 @@ nz-content {
   padding-top: 50px;
   min-height: 50px;
   line-height: 50px;
+  background-color: #fff;
 }
 
 nz-layout {
