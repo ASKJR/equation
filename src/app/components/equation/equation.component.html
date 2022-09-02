@@ -4,7 +4,7 @@
   <div nz-col nzSpan="24">
     <app-progress [current]="(equationIndex+1)+''" [total]="totalEquations+''"></app-progress>
   </div>
-</div>
+</div><br>
 <div *ngIf="currentEquation">
   <div nz-col nzSpan="24">
     <app-number  [numberValue]="currentEquation.numberOne"></app-number>
@@ -22,7 +22,7 @@
 </div>
 <div *ngIf="currentEquation">
   <div nz-col nzSpan="24">
-    <app-operator [operator]="'||'"></app-operator>
+    <app-operator [operator]="'='"></app-operator>
   </div>
 </div>
 <div *ngIf="currentEquation">

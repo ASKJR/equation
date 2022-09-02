@@ -5,7 +5,6 @@ import { Equation } from '../../models/equation'
 @Component({
   selector: 'app-equation',
   templateUrl: './equation.component.html',
-  styleUrls: ['./equation.component.css']
 })
 export class EquationComponent implements OnInit {
 

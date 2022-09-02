@@ -22,6 +22,7 @@ nz-content {
   min-height: 50px;
   line-height: 50px;
   background-color: #fff;
+  font-size: 2em;
 }
 
 nz-layout {
