@@ -18,6 +18,8 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgZorroAntdModule } from './ng-zorro-antd.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 registerLocaleData(en);
 
@@ -37,7 +39,13 @@ registerLocaleData(en);
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     EquationApiService,
