@@ -5,7 +5,5 @@ import { Component, Input } from '@angular/core';
   template: `<h1>{{numberValue}}</h1>`
 })
 export class NumberComponent {
-
   @Input() numberValue!: number;
-
 }

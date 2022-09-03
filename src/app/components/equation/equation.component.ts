@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { EquationApiService } from '../../services/equation-api.service'
 import { Equation } from '../../models/equation'
 
@@ -19,6 +19,8 @@ export class EquationComponent implements OnInit {
   startTime!: number;
   endTime!: number;
 
+  @Output() gameOverEvent = new EventEmitter<boolean>();
+
   ngOnInit(): void {
     this.init();
   }
@@ -29,6 +31,7 @@ export class EquationComponent implements OnInit {
     this.equationIndex = 0;
     this.clearInput = false;
     this.finished = false;
+    this.gameOverEvent.emit(false);
     this.equationApiService.getEquations(this.totalEquations).subscribe({
 
       next: (response) => {
@@ -70,6 +73,7 @@ export class EquationComponent implements OnInit {
     if (this.isQuizOver()) {
       this.finished = true;
       this.endTime = performance.now();
+      this.gameOverEvent.emit(true);
     }
   }
 

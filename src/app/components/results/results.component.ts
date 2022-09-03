@@ -3,7 +3,6 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
-  styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
 
@@ -17,5 +16,4 @@ export class ResultsComponent implements OnInit {
   timeResult () {
     return new Date(this.endTimeInMs-this.startTimeInMs).toISOString().substring(11,19);
   }
-
 }

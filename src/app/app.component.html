@@ -1,10 +1,10 @@
 <nz-layout>
-  <nz-header>Equation Quiz</nz-header>
-  <nz-content>
-    <app-equation></app-equation>
+  <nz-header><h1>Equations Challenge</h1></nz-header>
+  <nz-content [ngClass]="addGameOverCSS ? 'game-over' : ''">
+    <app-equation (gameOverEvent)="receivedGameOverEvent($event)"></app-equation>
   </nz-content>
   <nz-footer>
-    <b>Equation Quiz</b> - Developed by: <a href="https://www.albertokato.com.br">Alberto</a><br>
+    <b>Developed by: </b><a href="https://www.albertokato.com.br">Alberto Kato</a><br>
     <b>Email</b> - albertokatojr@gmail.com
   </nz-footer>
 </nz-layout>

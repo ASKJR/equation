@@ -3,8 +3,13 @@
 }
 
 nz-header {
-  color: aliceblue;
+  background-color: #4c8bf5;
 }
+
+nz-header h1 {
+  color:#fff;
+}
+
 nz-footer {
   background-color: #fff;
 }
@@ -23,6 +28,12 @@ nz-content {
   line-height: 50px;
   background-color: #fff;
   font-size: 2em;
+}
+
+.game-over {
+  background-image: url(https://i.gifer.com/6SSp.gif);
+  background-position: center;
+  background-size: cover;
 }
 
 nz-layout {

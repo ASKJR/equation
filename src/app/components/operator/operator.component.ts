@@ -5,8 +5,6 @@ import { Component, Input } from '@angular/core';
   template: `<h1>{{operator}}</h1>`
 })
 export class OperatorComponent  {
-
   @Input() operator!: string;
   constructor() { }
-
 }

@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'equation';
+  addGameOverCSS = false;
+
+  receivedGameOverEvent(isGameOver: boolean) {
+    this.addGameOverCSS = isGameOver ? true : false;
+  }
 }
