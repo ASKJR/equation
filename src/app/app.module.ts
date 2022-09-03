@@ -17,12 +17,7 @@ import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NzProgressModule } from 'ng-zorro-antd/progress';
-import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzButtonModule } from 'ng-zorro-antd/button'
+import { NgZorroAntdModule } from './ng-zorro-antd.module';
 
 registerLocaleData(en);
 
@@ -42,12 +37,7 @@ registerLocaleData(en);
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    NzCardModule,
-    NzLayoutModule,
-    NzProgressModule,
-    NzGridModule,
-    NzInputModule,
-    NzButtonModule
+    NgZorroAntdModule
   ],
   providers: [
     EquationApiService,
