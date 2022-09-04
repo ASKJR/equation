@@ -3,9 +3,8 @@ FROM node:16.17.0-alpine as build
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm install --silent
+RUN npm install
 COPY . /app
-RUN npm run build
 
 # production environment
 FROM nginx:1.16.0-alpine
