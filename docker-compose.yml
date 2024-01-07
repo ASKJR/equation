@@ -5,7 +5,7 @@ services:
   equation:
     container_name: web.equation
     environment:
-        - VIRTUAL_HOST=equation.albertokato.com.br
+        - VIRTUAL_HOST=equation.albertokato.com
         - VIRTUAL_PORT=80
     build:
       context: .
